@@ -1,18 +1,25 @@
-PImage pictureOfRecord;  //as member variable
-pictureOfRecord= loadImage("record.jpg");  //in setup method  
-image(pictureOfRecord, xPosition, yPosition);//in draw method
-size(pictureOfRecord.width, pictureOfRecord.height);
+import ddf.minim.*;
+PImage Hogan;
+Minim minim;
+AudioPlayer song;
+void setup(){
+  minim = new Minim(this);
+song = minim.loadFile("march.mp3", 512);
+size(750, 750);
+Hogan= loadImage("hogan.jpg");
+}
+void draw(){
+ image(Hogan, 0, 0);
+ if (mousePressed){
+     rotateImage(Hogan, 10);
+     song.play();
+}
+else{
+  song.pause();
+}
+}
 void rotateImage(PImage image, int amountToRotate) {
      translate(width/2, height/2);
      rotate(amountToRotate*TWO_PI/360);
      translate(-image.width/2, -image.height/2);
 }
-import ddf.minim.*;  //at the very top of your sketch
-Minim minim;  //as a member variable
-AudioPlayer song;  //as a member variable
-minim = new Minim(this);  //in the setup method
-song = minim.loadFile("awesomeTrack.mp3", 512);//in the setup method
-song.play();
-mousePressed
-song.play()
-song.pause()
