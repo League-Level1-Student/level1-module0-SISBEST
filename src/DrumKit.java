@@ -1,16 +1,9 @@
-
-/*
- *    Copyright (c) The League of Amazing Programmers 2013-2017
- *    Level 1
- */
-
 import java.applet.AudioClip;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
@@ -21,6 +14,7 @@ import javax.swing.JPanel;
 public class DrumKit implements MouseListener {
 
 	JLabel drumLabelWithImage;
+	JLabel cymbalLabelWithImage;
 
 	public static void main(String[] args) throws Exception {
 		new DrumKit().getGoing();
@@ -36,12 +30,15 @@ public class DrumKit implements MouseListener {
 		frame.add(panel);
 		String drumImage = "download.jpeg";
 		drumLabelWithImage = createLabelImage(drumImage);
+		String cymbalImage = "cymbal.jpg";
+		cymbalLabelWithImage = createLabelImage(cymbalImage);
+		cymbalLabelWithImage.addMouseListener(this);
 		panel.add(drumLabelWithImage);
+		panel.add(cymbalLabelWithImage);
 		panel.setLayout(new GridLayout());
 		frame.setSize(500, 500);
+		frame.pack();
 		drumLabelWithImage.addMouseListener(this);
-		// 18. Add more images to make a drumkit. Remember to add this mouse listener to
-		// each one.
 
 	}
 
@@ -49,14 +46,12 @@ public class DrumKit implements MouseListener {
 		System.out.println("DEBUG MESSAGE: INSTRUMENT CLICKED");
 
 		JLabel drumClicked = (JLabel) e.getSource(); // This line gets the label that the mouse clicked on
-
-		// 15. Download a drum sound and drop it into your "default package". You can
-		// find it on freesound.org. To download it, log in as
-		// leagueofamazing/code4life.
-		// 16. If they clicked on the drumImage...
-
-		// 17. ...use the playSound method to play a drum sound. Test to see if it works
-
+		if (drumClicked.equals(drumLabelWithImage)) {
+			playSound("drumsmall.wav");
+		}
+		if (drumClicked.equals(cymbalLabelWithImage)) {
+			playSound("cymbal.wav");
+		}
 	}
 
 	private JLabel createLabelImage(String fileName) throws MalformedURLException {

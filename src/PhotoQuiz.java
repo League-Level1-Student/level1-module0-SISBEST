@@ -19,36 +19,32 @@ public class PhotoQuiz {
 	public static void main(String[] args) throws Exception {
 		JFrame quizWindow = new JFrame();
 		quizWindow.setVisible(true);
-                quizWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   // This will make sure the program exits when you close the window
-
-		// 1. find an image on the internet, and put its URL in a String variable (from your browser, right click on the image, and select “Copy Image Address”)
-
-		// 2. create a variable of type "Component" that will hold your image
-
-		// 3. use the "createImage()" method below to initialize your Component
-
-		// 4. add the image to the quiz window
-
-		// 5. call the pack() method on the quiz window
-
-		// 6. ask a question that relates to the image
-
-		// 7. print "CORRECT" if the user gave the right answer
-
-		// 8. print "INCORRECT" if the answer is wrong
-
-		// 9. remove the component from the quiz window (you may not see the effect of this until step 12)
-
-		// 10. find another image and create it (might take more than one line of code)
-
-		// 11. add the second image to the quiz window
-
-		// 12. pack the quiz window
-
-		// 13. ask another question
-
-		// 14+ check answer, say if correct or incorrect, etc.
-
+        quizWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        String image1st = "https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg";
+        	Component image1;
+        	image1 = createImage(image1st);
+        	quizWindow.add(image1);
+        	quizWindow.pack();
+        String guess1 = JOptionPane.showInputDialog("When was this logo launched?");
+        if (guess1.equals("September 1, 2015")){
+        		System.out.println("Correct!");
+        }
+        else {
+        		System.out.println("NOOOOOOOOO!");
+        }
+        quizWindow.remove(image1);
+        String image2st = "http://openhouse.samuelsharp.com/_/rsrc/1528223765176/app/AppHomeScreenshot.png";
+    		Component image2;
+    		image2 = createImage(image2st);
+    		quizWindow.add(image2);
+    		quizWindow.pack();
+    		String guess2 = JOptionPane.showInputDialog("What app is this?");
+            if (guess2.equals("SOpenHouse")){
+            		System.out.println("Correct!");
+            }
+            else {
+            		System.out.println("NOOOOOOOOO!");
+            }
 	}
 
 	private static Component createImage(String imageUrl) throws MalformedURLException {
