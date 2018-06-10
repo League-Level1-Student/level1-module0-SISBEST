@@ -1,9 +1,3 @@
-/*
- *    Copyright (c) The League of Amazing Programmers 2013-2017
- *    Level 1
- */
-
-
 import java.awt.Component;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -46,20 +40,10 @@ public class PhotoQuiz {
             		System.out.println("NOOOOOOOOO!");
             }
 	}
-
 	private static Component createImage(String imageUrl) throws MalformedURLException {
 		URL url = new URL(imageUrl);
 		Icon icon = new ImageIcon(url);
 		JLabel imageLabel = new JLabel(icon);
 		return imageLabel;
 	}
-
-	/* OPTIONAL */
-	// *14. add scoring to your quiz
-	// *15. make something happen when mouse enters image (imageComponent.addMouseMotionListener()) 
 }
-
-
-
-
-
