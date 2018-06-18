@@ -11,6 +11,7 @@ public class AwesomeFX implements ActionListener{
 	static JButton keys = new JButton();
 	static JButton lava = new JButton();
 	static JButton cereal = new JButton();
+	AudioClip sound;
 	public static void main(String[] args) {
 		AwesomeFX fxstuff = new AwesomeFX();
 		fxstuff.addAct();
@@ -23,7 +24,7 @@ public class AwesomeFX implements ActionListener{
 		cereal.addActionListener(this);
 		JPanel sl = new JPanel();
 		lava.setText("Lava");
-		cereal.setText("Cereal");
+		cereal.setText("Random Music");
 		keys.setText("Keys");
 		jeopardy.setText("Jeopardy Think Music!");
 		sl.add(lava);
@@ -54,7 +55,10 @@ public class AwesomeFX implements ActionListener{
 	}
 	private void playSound(String soundFile) { 
 	     try {
-	          AudioClip sound = JApplet.newAudioClip(getClass().getResource(soundFile));
+	    	 	if (sound != null) {
+	    	 		sound.stop();
+	    	 	}
+	          sound = JApplet.newAudioClip(getClass().getResource(soundFile));
 	          sound.play();
 	     } catch (Exception e) {
 	          e.printStackTrace();
